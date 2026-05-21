@@ -9,6 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -71,19 +72,104 @@ nav{
     color:#ff6b2b;
 }
 
+.menu-icon{
+    font-size:26px;
+    cursor:pointer;
+    display:block;
+    color:#fff;
+}
+
 .menu{
-    display:flex;
-    gap:14px;
+    position:absolute;
+    top:65px;
+    right:20px;
+    background:#17171b;
+    border:1px solid #2a2a2f;
+    border-radius:18px;
+    padding:12px;
+    width:180px;
+    display:none;
+    flex-direction:column;
+    gap:10px;
+    animation:menuFade .3s ease;
 }
 
 .menu a{
-    font-size:12px;
-    color:#aaa;
+    padding:12px;
+    border-radius:12px;
+    background:#1f1f22;
+    font-size:13px;
     transition:.3s;
+    color:#ddd;
 }
 
 .menu a:hover{
+    background:#ff6b2b;
     color:#fff;
+}
+
+@keyframes menuFade{
+    from{
+        opacity:0;
+        transform:translateY(-10px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* DESKTOP */
+
+@media(min-width:768px){
+
+.menu-icon{
+    display:none;
+}
+
+.menu{
+    display:flex !important;
+    position:static;
+    flex-direction:row;
+    align-items:center;
+    gap:28px;
+    background:none;
+    border:none;
+    padding:0;
+    width:auto;
+}
+
+.menu a{
+    background:none;
+    padding:6px 0;
+    font-size:14px;
+    color:#9f9f9f;
+    font-weight:500;
+    letter-spacing:.3px;
+    transition:all .25s ease;
+    position:relative;
+}
+
+.menu a::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-4px;
+    width:0%;
+    height:1.5px;
+    background:#888;
+    transition:.3s;
+    border-radius:10px;
+}
+
+.menu a:hover{
+    color:#f1f1f1;
+}
+
+.menu a:hover::after{
+    width:100%;
+}
+
 }
 
 /* HERO */
@@ -327,6 +413,41 @@ footer{
 }
 
 }
+
+/*Views students free learning below image*/
+.hero-stats{
+    display:flex;
+    gap:10px;
+    margin-top:18px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.stat-box{
+    background:#17171b;
+    border:1px solid #2a2a2f;
+    padding:12px 16px;
+    border-radius:16px;
+    text-align:center;
+    min-width:90px;
+    transition:.3s;
+}
+
+.stat-box:hover{
+    border-color:#ff6b2b;
+    transform:translateY(-4px);
+}
+
+.stat-box h3{
+    color:#ff6b2b;
+    font-size:18px;
+    margin-bottom:4px;
+}
+
+.stat-box p{
+    font-size:11px;
+    color:#aaa;
+}
 </style>
 </head>
 
@@ -338,12 +459,16 @@ footer{
     <div class="container nav-wrap">
         <div class="logo">ನನ್ನ<span>ಕನ್ನಡ</span></div>
 
-        <div class="menu">
-            <a href="#home">Home</a>
-            <a href="#services">Services</a>
-            <a href="#work">Work</a>
-            <a href="#contact">Contact</a>
-        </div>
+        <div class="menu-icon" onclick="toggleMenu()">
+    ☰
+</div>
+
+<div class="menu" id="mobileMenu">
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#work">Work</a>
+    <a href="#contact">Contact</a>
+</div>
     </div>
 </nav>
 
@@ -367,7 +492,24 @@ footer{
 
         <div class="hero-image reveal">
             <img src="https://media.licdn.com/dms/image/v2/C4E03AQGMvUQxxSFOAA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1635234091623?e=2147483647&v=beta&t=hNJQc2hOi6KAxGcgqPmYWjH0CuVxHigFiDbgiKop0dE">
-        </div>
+        <div class="hero-stats">
+    <div class="stat-box">
+        <h3>100K+</h3>
+        <p>Views</p>
+    </div>
+
+    <div class="stat-box">
+        <h3>500+</h3>
+        <p>Students</p>
+    </div>
+
+    <div class="stat-box">
+        <h3>100%</h3>
+        <p>Free Learning</p>
+    </div>
+</div>
+
+</div>
 
     </div>
 </section>
@@ -519,7 +661,7 @@ footer{
 <!-- FOOTER -->
 
 <footer>
-    © 2026 Alex Portfolio. All rights reserved.
+   © 2026 Empowering Students Through Kannada Learning.
 </footer>
 
 <script>
@@ -571,6 +713,19 @@ ${message}`;
 
     window.open(url, "_blank");
 });
+
+
+
+<!-- menu buttons icon js i.e: home, service, work, contact -->
+function toggleMenu(){
+    const menu = document.getElementById("mobileMenu");
+
+    if(menu.style.display === "flex"){
+        menu.style.display = "none";
+    }else{
+        menu.style.display = "flex";
+    }
+}
 
 </script>
 
