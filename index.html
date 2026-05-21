@@ -379,29 +379,32 @@ footer{
 
         <div class="section-title reveal">
             <p>Services</p>
-            <h2>What I Do</h2>
+            <h2>What I Do for ಭವಿಷ್ಯ</h2>
         </div>
 
         <div class="grid grid-3">
 
             <div class="card reveal">
-                <h3>UI Design</h3>
+                <h3>Skills Dev</h3>
                 <p>
-                    Modern and clean interfaces focused on usability and conversions.
+                   Building skills today for a stronger tomorrow.<br>
+                   ಇಂದಿನ ಕೌಶಲ್ಯಗಳಿಂದ ನಾಳೆಯ ಬಲವಾದ ಭವಿಷ್ಯವನ್ನು ನಿರ್ಮಿಸಿಕೊಳ್ಳಿ.
                 </p>
             </div>
 
             <div class="card reveal">
-                <h3>Frontend Dev</h3>
+                <h3>Part Time Work</h3>
                 <p>
-                    Responsive websites using HTML, CSS and JavaScript only.
+                    Flexible part-time work opportunities to earn, learn, and grow.<br>
+                    ಕಲಿಯುತ್ತಾ ಸಂಪಾದಿಸಲು ಅನುಕೂಲಕರ ಭಾಗಕಾಲಿಕ ಕೆಲಸದ ಅವಕಾಶಗಳು.
                 </p>
             </div>
 
             <div class="card reveal">
-                <h3>Landing Pages</h3>
+                <h3>Exam Prepare</h3>
                 <p>
-                    High-converting landing pages optimized for mobile users.
+                    Focused exam preparation to help you learn smarter and succeed with confidence.<br>
+                    ಆತ್ಮವಿಶ್ವಾಸದಿಂದ ಯಶಸ್ಸು ಸಾಧಿಸಲು ಕೇಂದ್ರೀಕೃತ ಪರೀಕ್ಷಾ ತಯಾರಿ.
                 </p>
             </div>
 
@@ -427,10 +430,10 @@ footer{
                     <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=80">
                 </div>
 
-                <h3>SaaS Dashboard</h3>
+                <h3>E commerce in ಕನ್ನಡ</h3>
 
                 <p>
-                    Responsive admin dashboard with dark mode and analytics UI.
+                    Learn E-Commerce & Build Your Online Business in kannada.
                 </p>
             </div>
 
@@ -439,10 +442,10 @@ footer{
                     <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=900&q=80">
                 </div>
 
-                <h3>Developer Portfolio</h3>
+                <h3>Onine Research</h3>
 
                 <p>
-                    Personal portfolio website with modern animations and mobile-first layout.
+                    Smart Research Learning in kannada for digital marketing.
                 </p>
             </div>
 
@@ -458,16 +461,16 @@ footer{
 
         <div class="section-title reveal">
             <p>Skills</p>
-            <h2>Tech Stack</h2>
+            <h2>Master Tech Stack</h2>
         </div>
 
         <div class="skills reveal">
-            <div class="skill">HTML</div>
-            <div class="skill">CSS</div>
-            <div class="skill">JavaScript</div>
-            <div class="skill">Responsive UI</div>
-            <div class="skill">Animations</div>
-            <div class="skill">Figma</div>
+            <div class="skill">Learn everyting in Kannada</div>
+            <div class="skill">Startups</div>
+            <div class="skill">Part time work</div>
+            <div class="skill">Learn and Earn</div>
+            <div class="skill">Digital Marketing</div>
+            <div class="skill">Clear Exam Backlogs</div>
         </div>
 
     </div>
@@ -485,19 +488,19 @@ footer{
                 <h2>Let's Work Together</h2>
             </div>
 
-            <form>
+            <form id="contactForm">
 
-                <input type="text" placeholder="Your Name">
+    <input type="text" id="name" placeholder="Your Name" required>
 
-                <input type="email" placeholder="Email Address">
+    <input type="email" id="email" placeholder="Email Address" required>
 
-                <textarea placeholder="Your Message"></textarea>
+    <textarea id="message" placeholder="Your Message" required></textarea>
 
-                <button class="btn btn-primary">
-                    Send Message
-                </button>
+    <button type="submit" class="btn btn-primary">
+        Send message
+    </button>
 
-            </form>
+</form>
 
         </div>
 
@@ -533,6 +536,32 @@ function revealSection(){
 }
 
 revealSection();
+
+
+
+<!-- Whatsapp message form js -->
+document.getElementById("contactForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let message = document.getElementById("message").value;
+
+    let phoneNumber = "919663321579"; // 🔴 CHANGE THIS
+
+    let text =
+`Hello Sabanna 👋
+
+Name: ${name}
+Email: ${email}
+
+Message:
+${message}`;
+
+    let url = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(text);
+
+    window.open(url, "_blank");
+});
 
 </script>
 
