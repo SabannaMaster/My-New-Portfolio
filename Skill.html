@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skill Development Hub</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:linear-gradient(135deg,#0f172a,#1e293b,#334155);
+    color:white;
+    overflow-x:hidden;
+}
+
+/* HEADER */
+
+header{
+    text-align:center;
+    padding:90px 20px 70px;
+    animation:fadeIn 1s ease;
+}
+
+header h1{
+    font-size:clamp(2.2rem,7vw,4rem);
+    margin-bottom:15px;
+}
+
+header p{
+    max-width:750px;
+    margin:auto;
+    font-size:1.05rem;
+    line-height:1.8;
+    opacity:0.9;
+}
+
+/* BUTTON */
+
+.btn-container{
+    margin-top:35px;
+}
+
+.main-btn{
+    padding:18px 45px;
+    border:none;
+    border-radius:50px;
+    background:#38bdf8;
+    color:white;
+    font-size:1rem;
+    font-weight:700;
+    cursor:pointer;
+    transition:0.3s;
+    animation:pulse 2s infinite;
+    box-shadow:0 0 0 0 rgba(56,189,248,0.7);
+}
+
+.main-btn:hover{
+    transform:scale(1.05);
+    background:#0ea5e9;
+}
+
+@keyframes pulse{
+    0%{
+        box-shadow:0 0 0 0 rgba(56,189,248,0.7);
+    }
+    70%{
+        box-shadow:0 0 0 20px rgba(56,189,248,0);
+    }
+    100%{
+        box-shadow:0 0 0 0 rgba(56,189,248,0);
+    }
+}
+
+/* SKILL SECTION */
+
+#skill-section{
+    max-height:0;
+    opacity:0;
+    overflow:hidden;
+    transition:all 0.8s ease;
+    margin:0 20px;
+    border-radius:25px;
+    background:rgba(255,255,255,0.06);
+    backdrop-filter:blur(12px);
+}
+
+#skill-section.active{
+    max-height:5000px;
+    opacity:1;
+    padding:40px 20px;
+    margin-top:30px;
+}
+
+/* SEARCH */
+
+.search-box{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.search-box input{
+    width:90%;
+    max-width:550px;
+    padding:16px 22px;
+    border:none;
+    border-radius:40px;
+    outline:none;
+    font-size:1rem;
+    background:rgba(255,255,255,0.1);
+    color:white;
+    border:2px solid rgba(255,255,255,0.1);
+}
+
+.search-box input:focus{
+    border-color:#38bdf8;
+}
+
+.search-box input::placeholder{
+    color:#ddd;
+}
+
+/* GRID */
+
+.grid-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+    max-width:1200px;
+    margin:auto;
+}
+
+.card{
+    background:rgba(255,255,255,0.08);
+    padding:25px;
+    border-radius:20px;
+    transition:0.3s;
+    border:1px solid rgba(255,255,255,0.08);
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    background:rgba(255,255,255,0.12);
+    border-color:#38bdf8;
+}
+
+.card h3{
+    color:#38bdf8;
+    margin-bottom:12px;
+}
+
+.card p{
+    line-height:1.7;
+    opacity:0.9;
+    font-size:0.95rem;
+}
+
+/* BUTTONS */
+
+.visit-btn{
+    display:inline-block;
+    margin-top:20px;
+    text-align:center;
+    text-decoration:none;
+    background:#38bdf8;
+    color:white;
+    padding:12px 18px;
+    border-radius:12px;
+    font-weight:700;
+    transition:0.3s;
+}
+
+.visit-btn:hover{
+    background:#0ea5e9;
+}
+
+/* FEATURES */
+
+.features{
+    padding:80px 20px;
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.feature-card{
+    background:rgba(255,255,255,0.08);
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    transition:0.3s;
+}
+
+.feature-card:hover{
+    transform:translateY(-8px);
+    background:rgba(255,255,255,0.12);
+}
+
+.feature-card h2{
+    color:#38bdf8;
+    margin-bottom:15px;
+}
+
+.feature-card p{
+    line-height:1.7;
+    opacity:0.9;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:25px;
+    background:rgba(0,0,0,0.2);
+    font-size:0.95rem;
+    opacity:0.8;
+}
+
+/* ANIMATION */
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(-20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    header{
+        padding:70px 15px 50px;
+    }
+
+    .main-btn{
+        width:85%;
+        padding:16px;
+    }
+
+    .card{
+        padding:20px;
+    }
+
+    .features{
+        padding:60px 15px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <h1>🚀 Skill Development Hub</h1>
+
+    <p>
+        Learn future-ready skills and improve your career opportunities with
+        premium online learning platforms and practical training resources.
+    </p>
+
+    <div class="btn-container">
+        <button class="main-btn">
+            Start Skill Learning
+        </button>
+    </div>
+
+</header>
+
+<!-- SKILL SECTION -->
+
+<div id="skill-section">
+
+    <div class="search-box">
+        <input type="text" id="searchInput"
+        placeholder="Search skills like Coding, Design, Communication">
+    </div>
+
+    <div class="grid-container">
+
+        <div class="card">
+            <div>
+                <h3>Programming Skills</h3>
+                <p>
+                    Learn HTML, CSS, JavaScript, Python, and web development from beginner to advanced level.
+                </p>
+            </div>
+
+            <a href="https://www.w3schools.com" target="_blank" class="visit-btn">
+                Learn Now
+            </a>
+        </div>
+
+        <div class="card">
+            <div>
+                <h3>Graphic Designing</h3>
+                <p>
+                    Improve creativity using Canva, Photoshop, UI/UX, and modern designing tools.
+                </p>
+            </div>
+
+            <a href="https://www.canva.com" target="_blank" class="visit-btn">
+                Learn Now
+            </a>
+        </div>
+
+        <div class="card">
+            <div>
+                <h3>Communication Skills</h3>
+                <p>
+                    Develop spoken English, presentation skills, confidence, and personality development.
+                </p>
+            </div>
+
+            <a href="https://www.udemy.com" target="_blank" class="visit-btn">
+                Learn Now
+            </a>
+        </div>
+
+        <div class="card">
+            <div>
+                <h3>Video Editing</h3>
+                <p>
+                    Master video editing with CapCut, Premiere Pro, and cinematic editing techniques.
+                </p>
+            </div>
+
+            <a href="https://www.youtube.com" target="_blank" class="visit-btn">
+                Learn Now
+            </a>
+        </div>
+
+        <div class="card">
+            <div>
+                <h3>Digital Marketing</h3>
+                <p>
+                    Learn SEO, social media marketing, branding, and online business growth strategies.
+                </p>
+            </div>
+
+            <a href="https://learndigital.withgoogle.com" target="_blank" class="visit-btn">
+                Learn Now
+            </a>
+        </div>
+
+        <div class="card">
+            <div>
+                <h3>Artificial Intelligence</h3>
+                <p>
+                    Explore AI tools, machine learning basics, and future technology innovations.
+                </p>
+            </div>
+
+            <a href="https://www.coursera.org" target="_blank" class="visit-btn">
+                Learn Now
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- FEATURES -->
+
+<section class="features">
+
+    <div class="feature-card">
+        <h2>💡 Practical Skills</h2>
+        <p>
+            Learn real-world skills that help in career growth and freelancing opportunities.
+        </p>
+    </div>
+
+    <div class="feature-card">
+        <h2>🌐 Online Learning</h2>
+        <p>
+            Access premium learning resources anytime and anywhere from any device.
+        </p>
+    </div>
+
+    <div class="feature-card">
+        <h2>📈 Career Growth</h2>
+        <p>
+            Improve your resume and boost job opportunities with modern skill development.
+        </p>
+    </div>
+
+    <div class="feature-card">
+        <h2>🎯 Smart Training</h2>
+        <p>
+            Learn step-by-step with beginner-friendly and advanced training materials.
+        </p>
+    </div>
+
+</section>
+
+<footer>
+    © 2026 Skill Development Hub | Learn • Improve • Grow
+</footer>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    const button = document.querySelector(".main-btn");
+
+    const section = document.getElementById("skill-section");
+
+    button.addEventListener("click", function(){
+
+        const isOpening = !section.classList.contains("active");
+
+        section.classList.toggle("active");
+
+        if(isOpening){
+
+            setTimeout(() => {
+
+                section.scrollIntoView({
+                    behavior:"smooth",
+                    block:"start"
+                });
+
+            },300);
+
+        }
+
+    });
+
+    /* SEARCH FUNCTION */
+
+    const searchInput = document.getElementById("searchInput");
+
+    const cards = document.querySelectorAll(".card");
+
+    searchInput.addEventListener("input", function(){
+
+        const filter = searchInput.value.toLowerCase();
+
+        cards.forEach(card => {
+
+            const text = card.innerText.toLowerCase();
+
+            card.style.display = text.includes(filter)
+            ? "flex"
+            : "none";
+
+        });
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
